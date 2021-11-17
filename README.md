@@ -22,7 +22,7 @@ create a database and initialize it
 create a migration and upgrade your database
 
 
-Copyright (c) 2021 Felix Nderitu
+# Copyright (c) 2021 Felix Nderitu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
