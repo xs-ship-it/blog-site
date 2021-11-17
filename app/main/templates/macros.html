@@ -1,0 +1,62 @@
+{% macro displayBlog(blog_list)%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="container">
+        <div class="row">
+
+            <div>
+        <div>
+            <h1 style="text-align: center;"></h1>
+            <ul class="list-index ">
+         {% for blog in blog_list %}
+         <li class="jumbotron ">                 
+            <div>
+                <div class="card-body">
+        <p><b>Title:</b>{{blog.title}}</p>
+        <p><b>Blog:</b>{{blog.blog}}</p>
+        <p><b>Posted on</b>{{blog.posted.strftime('%Y-%m-%d')}}</p>
+        <a href="{{url_for('main.comment_blog',blog_id=blog.id)}}"><button type="button" class="btn btn-success">Comment</button></a><br>  
+       
+    {% endfor %}
+                </div>
+            </div>
+        </div>
+            </div>
+{% endmacro %}
+
+{% macro displayComments(comments_list)%}
+<h1 style="text-align: center;"> Comments</h1>
+<ul class="list-index ">
+{% for comment in comments_list %}
+<li class="jumbotron ">                 
+    <div>
+        <div class="card-body">
+
+            <p>{{comment.comment}}</p>
+            <p>Posted by:{{comment.user}}</p>
+            {{comment.posted.strftime('%Y-%m-%d')}}
+        </div>
+    </div>
+
+{%endfor %}
+
+{% endmacro %}
+
+{% macro displayUserBlogs(user_blogs)%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="text-align: center;">Blogs</h1>
+<ul class="list-index">
+    {% for blog in user_blogs %}
+
+    <li class="jumbotron">   
+        <div>
+            <div class="card-body">
+                <h4>{{blog.title}}</h4>
+                <p>{{blog.blog}}</p>
+                <a href="{{url_for('main.update',blog_id=blog.id)}}"><button type="button" class="btn btn-light">Update blog</button></a><br> 
+                 <a href="{{url_for('main.delete_blog',blog_id=blog.id)}}"><i class="fa fa-trash fa-2x" aria-hidden="true"></i>Delete blog</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    {%endfor%}
+{% endmacro%}
