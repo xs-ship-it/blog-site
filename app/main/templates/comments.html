@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+{%import 'macros.html' as macro %}
+
+
+{% block content%}
+    <h3>{{blog}}</h3>
+    {{macro.displayComments(all_comments)}}
+    {{wtf.quick_form(comment_form)}}
+
+{% endblock %}
