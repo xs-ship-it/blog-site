@@ -1,0 +1,34 @@
+
+{%block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('main.index')}}" style="color: white;"><strong>HOME</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('auth.register')}}" ><strong>SIGN UP</strong></a>
+        </li>
+        {%if current_user.is_authenticated%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('main.profile',uname=current_user.username)}}"><strong>PROFILE</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('auth.logout')}}"><strong>LOGOUT</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('main.new_blog')}}"><strong>CREATE A BLOG</strong></a>
+        </li>
+        {%else%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('auth.login')}}"><strong>LOGIN</strong></a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  {%endblock%}
