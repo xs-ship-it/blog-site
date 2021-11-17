@@ -1,4 +1,4 @@
-# Bog App
+# Blog App
 ## Built By 
 Felix Nderitu
 ## Description
