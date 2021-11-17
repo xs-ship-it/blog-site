@@ -1,5 +1,5 @@
 from flask import render_template,request,redirect,url_for,abort,flash
-from ..request import get_quotes
+from ..requests import get_quotes
 from . import main
 from flask_login import login_required,current_user
 from ..models  import User, Blog, Comment
